@@ -1,0 +1,301 @@
+//====================================================================================================
+.header {
+	background: #FFF;
+	box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.10);
+
+	&__container {}
+
+	&__body {
+		display: flex;
+		align-items: center;
+		//justify-content: space-between;
+		@include adaptiveValue("padding-top", 8, 11);
+		@include adaptiveValue("padding-bottom", 8, 11);
+
+		@media (max-width:600px) {
+			justify-content: space-between;
+		}
+	}
+
+	&__menu {}
+
+	&__search {}
+
+	&__action {}
+
+	&__avatar {}
+}
+
+.menu {
+	margin-right: 16px;
+
+	@media (max-width:768px) {
+		margin-right: 20px;
+	}
+
+	&__button {
+		display: flex;
+		max-width: 140px;
+		padding: 8px;
+		align-items: center;
+		gap: 8px;
+
+		border-radius: 4px;
+		background: #70C05B;
+	}
+
+	&__icon {
+		position: relative;
+		width: 20px;
+		height: 15px;
+		cursor: pointer;
+		z-index: 5;
+
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: rem(2);
+			background-color: #fff;
+		}
+
+		&::before {
+			top: 0;
+		}
+
+		&::after {
+			bottom: 0;
+		}
+
+		span {
+			top: calc(50% - rem(1));
+		}
+
+	}
+
+	&__title {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex: 1 0 0;
+		align-self: stretch;
+		color: #FFF;
+		text-align: center;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 150%;
+
+		@media (max-width:840px) {
+			display: none;
+		}
+	}
+}
+
+.search {
+	flex: 1 1 auto;
+	margin-right: 40px;
+
+	@media (max-width:600px) {
+		display: none;
+	}
+
+	@media (max-width:768px) {
+		margin-right: 20px;
+	}
+
+	max-width: 568px;
+
+	&__body {
+		position: relative;
+		justify-content: space-between;
+		display: flex;
+		height: 40px;
+		padding: 8px 8px 8px 16px;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+		flex: 1 0 0;
+
+		border-radius: 4px;
+		border: 1px solid var(--Main-Secondary, #70C05B);
+		background: var(--Main-Surface, #FFF);
+
+		color: #8F8F8F;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 150%;
+	}
+}
+
+.icon-search {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 8px;
+	font-size: 24px;
+}
+
+.action {
+	font-size: 24px;
+	color: #414141;
+
+	&__body {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+
+		@media (max-width:768px) {
+			@include adaptiveValue("gap", 16, 8);
+		}
+	}
+
+	&__item {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+	}
+
+	&__counter {
+		display: inline-flex;
+		padding: 2px 4px;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+
+		border-radius: 4px;
+		background: #F63;
+
+		color: #FFF;
+		font-size: 8px;
+
+		position: absolute;
+		top: -4px;
+		right: 14px;
+	}
+
+	&__text {
+		color: #414141;
+		text-align: center;
+
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 150%;
+	}
+}
+
+.icon-Shape-Stroke {}
+
+.icon-zakaz {}
+
+.icon-shopping-cart {}
+
+.avatar {
+
+	&__body {
+		margin-left: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		padding: 8px;
+
+		@media (max-width:768px) {
+			padding: 5px;
+		}
+	}
+
+	&__image-ibg {
+		width: 40px;
+		height: 40px;
+	}
+
+	&__name {
+		color: #232323;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 150%;
+		margin-right: 30px;
+
+		@media (max-width:840px) {
+			display: none;
+		}
+	}
+
+}
+
+.icon-down {
+	font-size: 9px;
+
+	@media (max-width:840px) {
+		display: none;
+	}
+}
+
+//====================================================================================================
+
+//Burger
+
+/* .icon-menu {
+	display: none;
+
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: rem(30);
+		height: rem(18);
+		cursor: pointer;
+		z-index: 5;
+
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: rem(2);
+			background-color: #000;
+		}
+
+		&::before {
+			top: 0;
+		}
+
+		&::after {
+			bottom: 0;
+		}
+
+		span {
+			top: calc(50% - rem(1));
+		}
+
+		.menu-open & {
+			span {
+				width: 0;
+			}
+
+			&::before,
+			&::after {}
+
+			&::before {
+				top: calc(50% - rem(1));
+				transform: rotate(-45deg);
+			}
+
+			&::after {
+				bottom: calc(50% - rem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+} */
